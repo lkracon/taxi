@@ -1,0 +1,8 @@
+.classpath
+.project
+.settings
+target
+backend\/bin
+frontend\/yo\/.tmp
+frontend\/yo\/app\/scripts\/translations.js
+alfresco\/alfresco.log

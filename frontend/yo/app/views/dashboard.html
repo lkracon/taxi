@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Dashboard</h1>
+    </div>
+</div>
+<div class="dash">
+</div>
+<div class="row">
+    <div class="col-lg-8">
+        <div id="map-canvas"  style="display:block;height:500px"/>
+        </div>
+        <div class="col-lg-4">
+            <h3>Nearest taxi</h3>
+            <input type="text" ng-model="addr" typeahead="address as address.name for address in getLocation($viewValue)" class="form-control"  placeholder="Address">
+            <br/>
+            <table ng-show="nearest" class="table table-hover table-bordered table-stripped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Distance</th>
+                        <th>Marka</th>
+                        <th>Model</th>
+                        <th>Driver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  ng-repeat="nearestTaxi in nearest" ng-click="hilightTaxi(nearestTaxi)" style="cursor:pointer;">
+                        <td>{{nearestTaxi.taxi.id}}</td>
+                        <td>{{format(nearestTaxi.distance)}}km</td>
+                        <td>{{nearestTaxi.taxi.marka}}</td>
+                        <td>{{nearestTaxi.taxi.model}}</td>
+                        <td>{{nearestTaxi.taxi.user.firstName}} {{nearestTaxi.taxi.user.lastName}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
